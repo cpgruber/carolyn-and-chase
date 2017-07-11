@@ -5,32 +5,13 @@
   ])
   .run(Run)
 
-  Run.$inject = ["$rootScope", "$timeout", "$sce", "dbs"];
-  function Run($rootScope, $timeout, $sce, dbs){
+  Run.$inject = ["$rootScope", "$timeout", "dbs"];
+  function Run($rootScope, $timeout, dbs){
 
-    dbs.rdb.replicate.to(gifs.ldb).then(function(res){
-      return gifs.ldb.query("client/gifs").then(function(res){
-        return res.rows.map(function(d){ return $sce.trustAsResourceUrl(d.value) });
-      });
-    }).then(function(gifs){
-      return runThru(gifs);
+    dbs.sync().then(function(gifs){
+      dbs.gifs = gifs;
+      return dbs.run();
     });
-
-    function runThru(gifs){
-      var tv = angular.element(document.querySelector(".tv"));
-      gifs.forEach(function(gif, i){
-        changeChannel(gif, i+1);
-      });
-      $timeout(function(){
-        return runThru(gifs);
-      }, gifs.length * 3000)
-
-      function changeChannel(gif, i){
-        return $timeout(function(){
-          tv.css("background-image", `url("${gif}")`);
-        }, 3000*i);
-      }
-    }
 
   }
 

@@ -1,7 +1,45 @@
 // sass --watch sass:css
+
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Josefin+Sans');
+
 *{
   margin: 0;
 }
+body{
+  font-family: 'Josefin Sans', sans-serif;
+}
+.no-margin{
+  margin: 0 !important;
+}
+.margin-top-10{
+  margin-top: 10px !important;
+}
+.right{
+  float: right;
+}
+.navbar-default{
+  background: rgba(230,230,230,0.35);
+  border: 0;
+}
+.navbar-toggle{
+  background: rgba(230,230,230,0.6);
+}
+.navbar-brand{
+  font-family: 'Abril Fatface', cursive;
+  & img{
+    height: 100%;
+  }
+}
+.navbar{
+  .nav a{
+    font-size: 1.2em;
+    color: rgba(0,0,0,0.8) !important;
+  }
+  .nav li:hover{
+    background-color: rgba(230,230,230,0.5);
+  }
+}
+
 .main{
   position: absolute;
   height: 100vmin;
@@ -22,6 +60,8 @@
 .tv{
   position: absolute;
   transform: rotate(1.3deg);
+}
+.tv-main{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -31,6 +71,10 @@
   -webkit-box-shadow: inset 0px 0px 51px -8px rgba(56,56,56,1);
   -moz-box-shadow: inset 0px 0px 51px -8px rgba(56,56,56,1);
   box-shadow: inset 0px 0px 51px -8px rgba(56,56,56,1);
+}
+.tv-click{
+  z-index: 3;
+  cursor: pointer;
 }
 
 @mixin tv-media($t, $l, $h, $w, $hide){
