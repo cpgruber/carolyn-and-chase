@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Wedding</title>
-    
+
     <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -19,6 +19,7 @@
 
    <script type="text/javascript" src="js/app.js"></script>
    <script type="text/javascript" src="js/gifs.js"></script>
+   <script type="text/javascript" src="js/giphy.js"></script>
    <script type="text/javascript" src="js/controller.js"></script>
   </head>
   <body ng-controller="ctrl as vm">
@@ -56,21 +57,31 @@
         <div class="modal-content">
           <div class="modal-header cf">
             <p class="lead no-margin left"><b>Thanks for being here!</b></p>
-            <!-- <button type="button" class="btn btn-default btn-circle right" title="Cancel" data-dismiss="modal" aria-hidden="true">
+            <button type="button" class="btn btn-default btn-xs right" title="Cancel" data-dismiss="modal" aria-hidden="true">
               <i class="fa fa-times fa-fw"></i>
-            </button> -->
+            </button>
           </div>
           <div class="modal-body cf">
             <p>Add a Gif (keep it tasteful)</p>
             <form ng-submit="vm.submitGif()">
               <fieldset>
-                <input type="text" ng-model="vm.gifForm.url" class="form-control" placeholder="Gif URL">
+                <div class="input-group">
+                  <input type="text" ng-model="vm.gifForm.search" class="form-control" placeholder="Search for something">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="vm.queryGif(vm.gifForm.search)">
+                      <i class="fa fa-fw fa-search"></i>
+                    </button>
+                  </span>
+                </div>
+              </fieldset>
+              <fieldset class="margin-top-10">
+                <div class="gif-container"></div>
               </fieldset>
               <fieldset class="margin-top-10">
                 <textarea ng-model="vm.gifForm.message" class="form-control" placeholder="Leave us a message"></textarea>
               </fieldset>
               <fieldset class="margin-top-10">
-                <button class="btn btn-default right" type="submit">Send some <i class="fa fa-heart-o"></i></button>
+                <button class="btn btn-default right" type="submit">Send some <i class="fa fa-heart-o text-danger"></i></button>
               </fieldset>
             </form>
           </div>

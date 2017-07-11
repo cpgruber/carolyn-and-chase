@@ -3,16 +3,25 @@
   .module("wedding")
   .controller("ctrl", ctrl)
 
-  ctrl.$inject = ["dbs"];
-  function ctrl(dbs){
+  ctrl.$inject = ["dbs", "giphy"];
+  function ctrl(dbs, giphy){
 
     var vm = this;
     vm.gifForm = {};
     vm.openModal = openModal;
     vm.submitGif = submitGif;
+    vm.queryGif = queryGif;
+    vm.gifPreviews = [];
 
     function openModal(){
       angular.element("#gifModal").modal("show");
+    }
+
+    function queryGif(param){
+      return giphy.query(param).then(function(urls){
+        vm.gifPreviews = urls;
+        angular.element(document.querySelector(".gif-container")).css("background-image", `url("${urls[0]}")`);
+      });
     }
 
     function submitGif(){
