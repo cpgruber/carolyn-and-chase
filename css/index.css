@@ -1,0 +1,84 @@
+* {
+  margin: 0; }
+
+.main {
+  position: absolute;
+  height: 100vmin;
+  width: 100vmax;
+  background-image: url("../assets/pic.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 2; }
+
+.tv-bg {
+  position: absolute;
+  height: 100vmin;
+  width: 100vmax;
+  z-index: -1;
+  background-image: url("https://media.giphy.com/media/iF3M9gPPCdulq/giphy.gif"); }
+
+.tv {
+  position: absolute;
+  transform: rotate(1.3deg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  filter: brightness(0.8);
+  -webkit-filter: brightness(0.8);
+  -webkit-box-shadow: inset 0px 0px 51px -8px #383838;
+  -moz-box-shadow: inset 0px 0px 51px -8px #383838;
+  box-shadow: inset 0px 0px 51px -8px #383838; }
+
+@media (max-width: 699px) {
+  .tv {
+    top: 22vmin;
+    left: 28vmax;
+    height: 20vmin;
+    width: 33vmax;
+    display: none; } }
+@media (min-width: 700px) {
+  .tv {
+    top: 23vmin;
+    left: 27vmax;
+    height: 20vmin;
+    width: 35vmax; } }
+@media (min-width: 750px) {
+  .tv {
+    top: 23vmin;
+    left: 29vmax;
+    height: 20vmin;
+    width: 32vmax; } }
+@media (min-width: 800px) {
+  .tv {
+    top: 23vmin;
+    left: 30vmax;
+    height: 20vmin;
+    width: 31vmax; } }
+@media (min-width: 850px) {
+  .tv {
+    top: 23vmin;
+    left: 31vmax;
+    height: 21vmin;
+    width: 29vmax; } }
+@media (min-width: 900px) {
+  .tv {
+    top: 22vmin;
+    left: 32vmax;
+    height: 21vmin;
+    width: 28vmax; } }
+@media (min-width: 950px) {
+  .tv {
+    top: 21vmin;
+    left: 33vmax;
+    height: 22vmin;
+    width: 26vmax; } }
+@media (min-width: 1000px) {
+  .tv {
+    top: 13vmin;
+    left: 33vmax;
+    height: 31vmin;
+    width: 26vmax; } }
+
+/*# sourceMappingURL=index.css.map */

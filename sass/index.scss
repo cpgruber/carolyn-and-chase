@@ -1,0 +1,55 @@
+// sass --watch sass:css
+*{
+  margin: 0;
+}
+.main{
+  position: absolute;
+  height: 100vmin;
+  width: 100vmax;
+  background-image: url('../assets/pic.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+.tv-bg{
+  position: absolute;
+  height: 100vmin;
+  width: 100vmax;
+  z-index: -1;
+  background-image: url('https://media.giphy.com/media/iF3M9gPPCdulq/giphy.gif');
+}
+.tv{
+  position: absolute;
+  transform: rotate(1.3deg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  filter: brightness(0.8);
+  -webkit-filter: brightness(0.8);
+  -webkit-box-shadow: inset 0px 0px 51px -8px rgba(56,56,56,1);
+  -moz-box-shadow: inset 0px 0px 51px -8px rgba(56,56,56,1);
+  box-shadow: inset 0px 0px 51px -8px rgba(56,56,56,1);
+}
+
+@mixin tv-media($t, $l, $h, $w, $hide){
+  .tv{
+    top: ($t)+vmin;
+    left: ($l)+vmax;
+    height: ($h)+vmin;
+    width: ($w)+vmax;
+    @if $hide == 1 {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 699px)  { @include tv-media(22, 28, 20, 33, 1) }
+@media (min-width: 700px)  { @include tv-media(23, 27, 20, 35, 0) }
+@media (min-width: 750px)  { @include tv-media(23, 29, 20, 32, 0) }
+@media (min-width: 800px)  { @include tv-media(23, 30, 20, 31, 0) }
+@media (min-width: 850px)  { @include tv-media(23, 31, 21, 29, 0) }
+@media (min-width: 900px)  { @include tv-media(22, 32, 21, 28, 0) }
+@media (min-width: 950px)  { @include tv-media(21, 33, 22, 26, 0) }
+@media (min-width: 1000px) { @include tv-media(13, 33, 31, 26, 0) }
