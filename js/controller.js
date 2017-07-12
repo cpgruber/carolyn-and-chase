@@ -11,6 +11,7 @@
     vm.openModal = openModal;
     vm.submitGif = submitGif;
     vm.queryGif = queryGif;
+    vm.scan = scan;
     vm.gifPreviews = [];
 
     function openModal(){
@@ -20,8 +21,22 @@
     function queryGif(param){
       return giphy.query(param).then(function(urls){
         vm.gifPreviews = urls;
-        angular.element(document.querySelector(".gif-container")).css("background-image", `url("${urls[0]}")`);
+        vm.gifForm.index = 0;
+        vm.gifForm.page = 0;
+        setGifFormBg();
       });
+    }
+
+    function scan(increment){
+      var idx = vm.gifForm.index + increment;
+      if (idx < vm.gifPreviews.length && idx >= 0){
+        vm.gifForm.index = idx;
+        setGifFormBg();
+      }
+    }
+
+    function setGifFormBg(){
+      vm.gifForm.style = {"background-image": "url("+vm.gifPreviews[vm.gifForm.index]+")"};
     }
 
     function submitGif(){

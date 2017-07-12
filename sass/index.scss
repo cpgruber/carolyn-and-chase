@@ -8,6 +8,11 @@
 body{
   font-family: 'Josefin Sans', sans-serif;
 }
+.cf:after{
+  content: "";
+  display: table;
+  clear: both;
+}
 .no-margin{
   margin: 0 !important;
 }
@@ -78,6 +83,34 @@ body{
 .tv-click{
   z-index: 3;
   cursor: pointer;
+}
+
+.gif-container{
+  height: 260px;
+  width: 80%;
+  margin: 0 auto;
+  background-color: gray;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  &.gif-short{
+    height: 0;
+    .scroll-btn{
+      display: none;
+    }
+  }
+  .scroll-btn{
+    cursor: pointer;
+    height: 100%;
+    width: 24px;
+    padding-top: 120px;
+    background: rgba(230,230,230,0.3);
+    color: #cdcdcd;
+    font-weight: bold;
+    &:hover{
+      background: rgba(230,230,230,0.6);
+    }
+  }
 }
 
 @mixin tv-media($t, $l, $h, $w, $hide){

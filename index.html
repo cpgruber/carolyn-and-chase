@@ -68,14 +68,21 @@
                 <div class="input-group">
                   <input type="text" ng-model="vm.gifForm.search" class="form-control" placeholder="Search for something">
                   <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" ng-click="vm.queryGif(vm.gifForm.search)">
+                    <button class="btn btn-default" type="button" ng-click="vm.queryGif(vm.gifForm.search, 0)">
                       <i class="fa fa-fw fa-search"></i>
                     </button>
                   </span>
                 </div>
               </fieldset>
               <fieldset class="margin-top-10">
-                <div class="gif-container"></div>
+                <div class="gif-container cf" ng-class="{'gif-short': vm.gifPreviews.length == 0}" ng-style="vm.gifForm.style">
+                  <div class="scroll-btn left" ng-click="vm.scan(-1)" ng-hide="vm.gifForm.index == 0 && vm.gifForm.page == 0">
+                    <i class="fa fa-fw fa-arrow-left"></i>
+                  </div>
+                  <div class="scroll-btn right" ng-click="vm.scan(1)">
+                    <i class="fa fa-fw fa-arrow-right"></i>
+                  </div>
+                </div>
               </fieldset>
               <fieldset class="margin-top-10">
                 <textarea ng-model="vm.gifForm.message" class="form-control" placeholder="Leave us a message"></textarea>
