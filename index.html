@@ -63,13 +63,19 @@
             </button>
           </div>
           <div class="modal-body cf">
-            <p>Drop us a note, and top it with a gif (keep it tasteful, you animal).</p>
+            <p>Drop us a note, and top it with a gif (keep it tasteful, you animals)</p>
             <form ng-submit="vm.submitGif()">
               <fieldset class="margin-top-10">
                 <textarea ng-model="vm.gifForm.message" class="form-control" placeholder="Leave us a message"></textarea>
               </fieldset>
               <fieldset class="margin-top-10">
-                <input type="text" ng-model="vm.gifForm.search" class="form-control" placeholder="Search for the perfect GIF" ng-change="vm.queryGif(vm.gifForm.search, 0, 0)">
+                <div class="input-group">
+                  <input type="text" ng-model="vm.gifForm.search" class="form-control" placeholder="Search for the perfect GIF" ng-change="vm.queryGif(vm.gifForm.search, 0, 0)">
+                  <span class="input-group-addon" style="padding:0;">
+                    <img height="40%" src="assets/giphy.png" alt="Powered by Giphy">
+                  </span>
+                </div>
+
               </fieldset>
               <fieldset class="margin-top-10">
                 <div class="gif-container cf" ng-class="{'gif-short': vm.gifPreviews.length == 0}" ng-style="vm.gifForm.style">
