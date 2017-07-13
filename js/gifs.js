@@ -21,6 +21,9 @@
       return gifs.rdb.replicate.to(gifs.ldb).then(function(res){
         return gifs.ldb.query("client/gifs").then(function(res){
           return res.rows.map(function(d){ return $sce.trustAsResourceUrl(d.value) });
+        }).then(function(urls){
+          gifs.gifs = urls;
+          return gifs.run();
         });
       });
     }
@@ -43,7 +46,7 @@
         changeChannel(gif, i);
       });
       var timeout = $timeout(function(){
-        return gifs.run();
+        return gifs.sync();
       }, gifs.gifs.length * 4000);
       gifs.timeouts.push(timeout);
 

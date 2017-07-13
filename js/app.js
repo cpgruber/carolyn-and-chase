@@ -7,12 +7,7 @@
 
   Run.$inject = ["dbs"];
   function Run(dbs){
-
-    dbs.sync().then(function(gifs){
-      dbs.gifs = gifs;
-      return dbs.run();
-    });
-
+    dbs.sync();
   }
 
 }())

@@ -19,7 +19,10 @@
     }
 
     function queryGif(param, page, index){
-      if (param.length < 3) return;
+      if (param.length < 3){
+        vm.gifPreviews = [];
+        return false;
+      };
       return giphy.query(param, page*25).then(function(urls){
         vm.gifPreviews = urls;
         vm.gifForm.index = index;
@@ -62,7 +65,7 @@
         dbs.gifs = gifs;
         vm.gifForm = {};
         vm.gifPreviews = [];
-        return dbs.run();
+        return dbs.sync();
       }).catch(function(err){
         console.log("err", err);
       });
