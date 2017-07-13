@@ -10,8 +10,8 @@
       query: query
     }
 
-    function query(param){
-      var url = `https://api.giphy.com/v1/gifs/search?api_key=${giphy_key}&q=${param}&limit=25&offset=0&rating=PG-13&lang=en`;
+    function query(param, page){
+      var url = `https://api.giphy.com/v1/gifs/search?api_key=${giphy_key}&q=${param}&limit=25&offset=${page}&rating=PG-13&lang=en`;
       return $http.get(url).then(function(res){
         return res.data.data.map(function(d){ return $sce.trustAsResourceUrl(d.images.original.url) });
       });

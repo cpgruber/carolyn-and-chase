@@ -40,17 +40,17 @@
       });
       var tv = angular.element(document.querySelector(".tv-main"));
       gifs.gifs.forEach(function(gif, i){
-        changeChannel(gif, i+1);
+        changeChannel(gif, i);
       });
       var timeout = $timeout(function(){
         return gifs.run();
-      }, gifs.gifs.length * 3000);
+      }, gifs.gifs.length * 4000);
       gifs.timeouts.push(timeout);
 
       function changeChannel(gif, i){
         var timeout = $timeout(function(){
           tv.css("background-image", `url("${gif}")`);
-        }, 3000*i);
+        }, 4000*i);
         gifs.timeouts.push(timeout);
       }
     }

@@ -91,7 +91,7 @@ body {
   .gif-container .scroll-btn {
     cursor: pointer;
     height: 100%;
-    width: 24px;
+    width: auto;
     padding-top: 120px;
     background: rgba(230, 230, 230, 0.3);
     color: #cdcdcd;
