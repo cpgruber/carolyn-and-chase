@@ -1,0 +1,68 @@
+//mixins
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$desktop-height: 1px;
+
+@mixin tablet {
+  @media (min-device-width: #{$tablet-width}) and (max-device-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media (orientation: portrait) and (min-device-width: #{$tablet-width}) and (max-device-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media (orientation: landscape) and (min-device-width: #{$tablet-width}) and (max-device-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-device-width: #{$mobile-width}) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media (orientation: landscape) and (max-device-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) and (max-device-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-device-width: #{$desktop-width}) and (min-device-height: #{$desktop-height}){
+    @content;
+  }
+}
+
+@mixin tv-media($t, $l, $h, $w, $mobile, $hide){
+  .tv{
+    @if $mobile == 1 {
+      top: ($t)+vh;
+      left: ($l)+vw;
+      height: ($h)+vh;
+      width: ($w)+vw;
+    }@else{
+      top: ($t)+vmin;
+      left: ($l)+vmax;
+      height: ($h)+vmin;
+      width: ($w)+vmax;
+    }
+    @if $hide == 1 {
+      display: none;
+    }@else{
+      display: block;
+    }
+  }
+}

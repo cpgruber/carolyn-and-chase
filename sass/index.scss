@@ -1,11 +1,13 @@
 // sass --watch sass:css
 
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Josefin+Sans');
+@import "_media.scss";
 
 *{
   margin: 0;
 }
 body{
+  width: 100%;
   font-family: 'Josefin Sans', sans-serif;
 }
 .cf:after{
@@ -47,9 +49,18 @@ body{
     background-color: rgba(230,230,230,0.5);
   }
 }
+.spacer{
+  height: 100vh;
+  // margin-bottom: 50px;
+}
+.row{
+  padding-top: 70px;
+  height: 100vh;
+}
 
 .main{
   position: absolute;
+  left: 0;
   height: 100vmin;
   width: 100vmax;
   background-image: url('../assets/pic.png');
@@ -57,11 +68,34 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   z-index: 2;
+  @include portrait {
+    height: 100vh;
+    width: 100vw;
+    background-position: 45% center;
+  }
+  @include landscape {
+    background-position: 35% 20%;
+    background-size: 135%;
+  }
+  // @include tablet-portrait {
+  //   height: 100vh;
+  //   width: 100vw;
+  //   background-position: center;
+  // }
 }
 .tv-bg{
   position: absolute;
+  left: 0;
   height: 100vmin;
   width: 100vmax;
+  @include portrait {
+    height: 100vh;
+    width: 100vw;
+  }
+  // @include tablet-portrait {
+  //   height: 100vh;
+  //   width: 100vw;
+  // }
   z-index: -1;
   background-image: url('https://media.giphy.com/media/iF3M9gPPCdulq/giphy.gif');
 }
@@ -74,6 +108,9 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
+  // z-index: 5;
+  // border: 2px solid red;
+  // opacity: 0.4;
   filter: brightness(0.8);
   -webkit-filter: brightness(0.8);
   -webkit-box-shadow: inset 0px 0px 51px -8px rgba(56,56,56,1);
@@ -113,23 +150,24 @@ body{
   }
 }
 
-@mixin tv-media($t, $l, $h, $w, $hide){
-  .tv{
-    top: ($t)+vmin;
-    left: ($l)+vmax;
-    height: ($h)+vmin;
-    width: ($w)+vmax;
-    @if $hide == 1 {
-      display: none;
-    }
-  }
+@media (max-width: 699px)  { @include tv-media(22, 28, 20, 33, 0, 1) }
+@media (min-width: 700px)  { @include tv-media(23, 27, 20, 35, 0, 0) }
+@media (min-width: 750px)  { @include tv-media(23, 29, 21, 32.5, 0, 0) }
+@media (min-width: 800px)  { @include tv-media(23, 30, 21, 31, 0, 0) }
+@media (min-width: 850px)  { @include tv-media(23, 31, 21, 29, 0, 0) }
+@media (min-width: 900px)  { @include tv-media(22, 32, 22, 28, 0, 0) }
+@media (min-width: 950px)  { @include tv-media(21, 33, 22.5, 26.5, 0, 0) }
+@media (min-width: 1000px) { @include tv-media(20, 33, 24, 26.5, 0, 0) }
+@media (min-width: 1050px) { @include tv-media(13, 33, 29, 26.5, 0, 0) }
+@include portrait {
+  @include tv-media(23, 16, 21, 62, 1, 0)
 }
-
-@media (max-width: 699px)  { @include tv-media(22, 28, 20, 33, 1) }
-@media (min-width: 700px)  { @include tv-media(23, 27, 20, 35, 0) }
-@media (min-width: 750px)  { @include tv-media(23, 29, 20, 32, 0) }
-@media (min-width: 800px)  { @include tv-media(23, 30, 20, 31, 0) }
-@media (min-width: 850px)  { @include tv-media(23, 31, 21, 29, 0) }
-@media (min-width: 900px)  { @include tv-media(22, 32, 21, 28, 0) }
-@media (min-width: 950px)  { @include tv-media(21, 33, 22, 26, 0) }
-@media (min-width: 1000px) { @include tv-media(13, 33, 31, 26, 0) }
+@include landscape {
+  @include tv-media(25, 32, 38, 36, 0, 0)
+}
+// @include tablet-portrait {
+//   @include tv-media(25, 25, 25, 25, 1, 0)
+// }
+// @include tablet-landscape {
+//   @include tv-media(25, 25, 25, 25, 0, 0)
+// }

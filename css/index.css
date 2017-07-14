@@ -3,6 +3,7 @@
   margin: 0; }
 
 body {
+  width: 100%;
   font-family: 'Josefin Sans', sans-serif; }
 
 .cf:after {
@@ -40,8 +41,16 @@ body {
 .navbar .nav li:hover {
   background-color: rgba(230, 230, 230, 0.5); }
 
+.spacer {
+  height: 100vh; }
+
+.row {
+  padding-top: 70px;
+  height: 100vh; }
+
 .main {
   position: absolute;
+  left: 0;
   height: 100vmin;
   width: 100vmax;
   background-image: url("../assets/pic.png");
@@ -49,13 +58,27 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   z-index: 2; }
+  @media (orientation: portrait) and (max-device-width: 767px) {
+    .main {
+      height: 100vh;
+      width: 100vw;
+      background-position: 45% center; } }
+  @media (orientation: landscape) and (max-device-width: 767px) {
+    .main {
+      background-position: 35% 20%;
+      background-size: 135%; } }
 
 .tv-bg {
   position: absolute;
+  left: 0;
   height: 100vmin;
   width: 100vmax;
   z-index: -1;
   background-image: url("https://media.giphy.com/media/iF3M9gPPCdulq/giphy.gif"); }
+  @media (orientation: portrait) and (max-device-width: 767px) {
+    .tv-bg {
+      height: 100vh;
+      width: 100vw; } }
 
 .tv {
   position: absolute;
@@ -111,42 +134,70 @@ body {
     top: 23vmin;
     left: 27vmax;
     height: 20vmin;
-    width: 35vmax; } }
+    width: 35vmax;
+    display: block; } }
 @media (min-width: 750px) {
   .tv {
     top: 23vmin;
     left: 29vmax;
-    height: 20vmin;
-    width: 32vmax; } }
+    height: 21vmin;
+    width: 32.5vmax;
+    display: block; } }
 @media (min-width: 800px) {
   .tv {
     top: 23vmin;
     left: 30vmax;
-    height: 20vmin;
-    width: 31vmax; } }
+    height: 21vmin;
+    width: 31vmax;
+    display: block; } }
 @media (min-width: 850px) {
   .tv {
     top: 23vmin;
     left: 31vmax;
     height: 21vmin;
-    width: 29vmax; } }
+    width: 29vmax;
+    display: block; } }
 @media (min-width: 900px) {
   .tv {
     top: 22vmin;
     left: 32vmax;
-    height: 21vmin;
-    width: 28vmax; } }
+    height: 22vmin;
+    width: 28vmax;
+    display: block; } }
 @media (min-width: 950px) {
   .tv {
     top: 21vmin;
     left: 33vmax;
-    height: 22vmin;
-    width: 26vmax; } }
+    height: 22.5vmin;
+    width: 26.5vmax;
+    display: block; } }
 @media (min-width: 1000px) {
+  .tv {
+    top: 20vmin;
+    left: 33vmax;
+    height: 24vmin;
+    width: 26.5vmax;
+    display: block; } }
+@media (min-width: 1050px) {
   .tv {
     top: 13vmin;
     left: 33vmax;
-    height: 31vmin;
-    width: 26vmax; } }
+    height: 29vmin;
+    width: 26.5vmax;
+    display: block; } }
+@media (orientation: portrait) and (max-device-width: 767px) {
+  .tv {
+    top: 23vh;
+    left: 16vw;
+    height: 21vh;
+    width: 62vw;
+    display: block; } }
+@media (orientation: landscape) and (max-device-width: 767px) {
+  .tv {
+    top: 25vmin;
+    left: 32vmax;
+    height: 38vmin;
+    width: 36vmax;
+    display: block; } }
 
 /*# sourceMappingURL=index.css.map */
