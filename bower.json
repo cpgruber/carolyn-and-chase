@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "angular-pouchdb": "^5.0.0",
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "fontawesome#^4.7.0",
+    "angular-ui-router": "0.3.1"
   }
 }

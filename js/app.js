@@ -1,14 +1,32 @@
 (function(){
   angular
   .module("wedding", [
+    "ui.router",
     "pouchdb"
   ])
+  .config(Router)
   .run(Run)
   .directive("scrollTo", scrollTo)
 
-  Run.$inject = ["dbs"];
-  function Run(dbs){
-    dbs.sync();
+  Router.$inject = ["$stateProvider", "$locationProvider"];
+  function Router($stateProvider, $locationProvider){
+    $stateProvider
+    .state("main", {
+      url: "/",
+      controller: "ctrl",
+      controllerAs: "vm",
+      templateUrl: "templates/main.html"
+    });
+
+    $locationProvider.html5Mode(true);
+  }
+
+  Run.$inject = ["dbs", "$timeout"];
+  function Run(dbs, $timeout){
+    $timeout(function(){
+      angular.element("#loader").css("display", "none");
+      dbs.sync();
+    }, 2000);
   }
 
   function scrollTo(){
