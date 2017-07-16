@@ -29,7 +29,10 @@
     $location.hash(path);
 
     $timeout(function(){
-      angular.element("#loader").css("display", "none");
+      var transitionEvts = "transitionend webkitTransitionEnd oTransitionEnd otransitionend";
+      angular.element("#loader").css("opacity", 0).on(transitionEvts, function(evt){
+        angular.element("#loader").css("display", "none");
+      });
       dbs.sync();
       $rootScope.$broadcast("scroll-to", path);
     }, 2000);
@@ -76,16 +79,19 @@
       });
 
       if (scope.changed){
-        angular.element(document.querySelector(".navbar-brand")).addClass("colorful").removeClass("white");
+        // angular.element(document.querySelector(".navbar-brand")).addClass("colorful").removeClass("white");
+        angular.element(document.querySelector(".navbar")).addClass("colorful").removeClass("white");
       }
 
       function handler(){
         if (windowEl.scrollTop() > windowEl.height()-50 && !scope.changed){
           scope.changed = true;
-          angular.element(document.querySelector(".navbar-brand")).addClass("colorful").removeClass("white");
+          // angular.element(document.querySelector(".navbar-brand")).addClass("colorful").removeClass("white");
+          angular.element(document.querySelector(".navbar")).addClass("colorful").removeClass("white");
         }else if (windowEl.scrollTop() <= windowEl.height()-50 && scope.changed){
           scope.changed = false;
-          angular.element(document.querySelector(".navbar-brand")).removeClass("colorful").addClass("white");
+          // angular.element(document.querySelector(".navbar-brand")).removeClass("colorful").addClass("white");
+          angular.element(document.querySelector(".navbar")).removeClass("colorful").addClass("white");
         }
       }
 

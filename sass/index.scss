@@ -29,8 +29,21 @@ body{
   float: right;
 }
 .navbar-default{
-  background: rgba(230,230,230,0.35);
   border: 0;
+  &.colorful {
+    transition: 2s;
+    background-color: rgba(230,230,230,0.95);
+    .navbar-brand {
+      color: #4f839b;
+    }
+  }
+  &.white {
+    transition: 1s;
+    background-color: rgba(230,230,230,0.35);
+    .navbar-brand {
+      color: rgba(220,220,220,0.8);
+    }
+  }
   .navbar-brand{
     transition: color 2s;
     font-family: 'Abril Fatface', cursive;
@@ -40,14 +53,6 @@ body{
     & img{
       height: 100%;
     }
-    &.white{
-      transition: color 1s;
-      color: rgba(220,220,220,0.8);
-    }
-    &.colorful{
-      transition: color 2s;
-      color: #8392bf;
-    }
   }
   .navbar-toggle{
     background: rgba(0,0,0,0);
@@ -56,9 +61,9 @@ body{
 }
 .navbar{
   .nav a{
-    font-size: 1.2em;
-    color: rgba(0,0,0,0.8) !important;
-    font-weight: bolder;
+    font-size: 1.3em;
+    color: rgba(30,30,30,0.8) !important;
+    font-weight: bold;
   }
   .nav li:hover{
     background-color: rgba(230,230,230,0.5);
@@ -69,8 +74,21 @@ body{
 }
 .row{
   padding-top: 70px;
-  &:last-of-type{
-    height: 100vh;
+}
+
+.footer {
+  height: 100px;
+  position: relative;
+  span {
+    position: absolute;
+    right: 140px;
+    bottom: 30px;
+  }
+  .footer-link {
+    position: absolute;
+    width: 225px;
+    right: 0;
+    bottom: 0;
   }
 }
 
