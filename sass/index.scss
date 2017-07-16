@@ -9,6 +9,7 @@
 body{
   width: 100%;
   font-family: 'Josefin Sans', sans-serif;
+  background: url('../assets/texture.png');
 }
 .cf:after{
   content: "";
@@ -30,20 +31,34 @@ body{
 .navbar-default{
   background: rgba(230,230,230,0.35);
   border: 0;
-}
-.navbar-toggle{
-  background: rgba(230,230,230,0.6);
-}
-.navbar-brand{
-  font-family: 'Abril Fatface', cursive;
-  & img{
-    height: 100%;
+  .navbar-brand{
+    transition: color 2s;
+    font-family: 'Abril Fatface', cursive;
+    &:active,&:hover,&:focus,&:visited{
+      color: rgb(240,240,240);
+    }
+    & img{
+      height: 100%;
+    }
+    &.white{
+      transition: color 1s;
+      color: rgba(220,220,220,0.8);
+    }
+    &.colorful{
+      transition: color 2s;
+      color: #8392bf;
+    }
+  }
+  .navbar-toggle{
+    background: rgba(0,0,0,0);
+    border: 0;
   }
 }
 .navbar{
   .nav a{
     font-size: 1.2em;
     color: rgba(0,0,0,0.8) !important;
+    font-weight: bolder;
   }
   .nav li:hover{
     background-color: rgba(230,230,230,0.5);
@@ -51,38 +66,63 @@ body{
 }
 .spacer{
   height: 100vh;
-  // margin-bottom: 50px;
 }
 .row{
   padding-top: 70px;
-  height: 100vh;
+  &:last-of-type{
+    height: 100vh;
+  }
 }
 
-.main{
+.main-container{
   position: absolute;
   left: 0;
   height: 100vmin;
   width: 100vmax;
-  background-image: url('../assets/pic.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   z-index: 2;
   @include portrait {
     height: 100vh;
     width: 100vw;
-    background-position: 45% center;
   }
-  @include landscape {
-    background-position: 35% 20%;
-    background-size: 135%;
-  }
-  // @include tablet-portrait {
-  //   height: 100vh;
-  //   width: 100vw;
-  //   background-position: center;
-  // }
 }
+
+.main-bg{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  &:before{
+    content: "";
+    position: absolute;
+    width: 103%;
+    height: 103%;
+    top: -1.5%;
+    left: -1.5%;
+    z-index: -1;
+    background-image: url('../assets/bg.png');
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    -webkit-transform: rotate(0.9deg);
+    transform: rotate(0.9deg);
+    @include portrait {
+      width: 104%;
+      height: 104%;
+      top: -2%;
+      left: -2%;
+      background-position: 41% 20%;
+    }
+    @include landscape {
+      width: 104%;
+      height: 104%;
+      top: -2%;
+      left: -2%;
+      background-position: 35% 20%;
+      background-size: 115%;
+    }
+  }
+}
+
 .tv-bg{
   position: absolute;
   left: 0;
@@ -92,16 +132,11 @@ body{
     height: 100vh;
     width: 100vw;
   }
-  // @include tablet-portrait {
-  //   height: 100vh;
-  //   width: 100vw;
-  // }
   z-index: -1;
   background-image: url('https://media.giphy.com/media/iF3M9gPPCdulq/giphy.gif');
 }
 .tv{
   position: absolute;
-  transform: rotate(1.3deg);
 }
 .tv-main{
   background-size: cover;
@@ -151,19 +186,19 @@ body{
 }
 
 @media (max-width: 699px)  { @include tv-media(22, 28, 20, 33, 0, 1) }
-@media (min-width: 700px)  { @include tv-media(23, 27, 20, 35, 0, 0) }
-@media (min-width: 750px)  { @include tv-media(23, 29, 21, 32.5, 0, 0) }
-@media (min-width: 800px)  { @include tv-media(23, 30, 21, 31, 0, 0) }
-@media (min-width: 850px)  { @include tv-media(23, 31, 21, 29, 0, 0) }
-@media (min-width: 900px)  { @include tv-media(22, 32, 22, 28, 0, 0) }
-@media (min-width: 950px)  { @include tv-media(21, 33, 22.5, 26.5, 0, 0) }
-@media (min-width: 1000px) { @include tv-media(20, 33, 24, 26.5, 0, 0) }
-@media (min-width: 1050px) { @include tv-media(13, 33, 29, 26.5, 0, 0) }
+@media (min-width: 700px)  { @include tv-media(19, 17, 31, 51, 0, 0) }
+@media (min-width: 750px)  { @include tv-media(19, 19, 31, 47.5, 0, 0) }
+@media (min-width: 800px)  { @include tv-media(19, 21, 31, 44.5, 0, 0) }
+@media (min-width: 850px)  { @include tv-media(19, 23, 31.5, 41.5, 0, 0) }
+@media (min-width: 900px)  { @include tv-media(19.5, 24.5, 31.5, 39.5, 0, 0) }
+@media (min-width: 950px)  { @include tv-media(19.5, 25, 32.5, 38.5, 0, 0) }
+@media (min-width: 1000px) { @include tv-media(20, 25, 33, 38.5, 0, 0) }
+@media (min-width: 1050px) { @include tv-media(20, 25, 41, 38.5, 0, 0) }
 @include portrait {
-  @include tv-media(23, 16, 21, 62, 1, 0)
+  @include tv-media(19, 3, 31, 93, 1, 0)
 }
 @include landscape {
-  @include tv-media(25, 32, 38, 36, 0, 0)
+  @include tv-media(19, 23, 48, 45, 0, 0)
 }
 // @include tablet-portrait {
 //   @include tv-media(25, 25, 25, 25, 1, 0)

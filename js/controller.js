@@ -7,6 +7,7 @@
   function ctrl(dbs, giphy){
 
     var vm = this;
+    vm.scroll = 0;
     vm.gifForm = {};
     vm.openModal = openModal;
     vm.submitGif = submitGif;

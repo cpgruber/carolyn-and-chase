@@ -1,6 +1,6 @@
 <div>
 
-<div class="container">
+<div class="container" scroll-watch="vm.scroll">
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -10,43 +10,63 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="#" scroll-to class="navbar-brand">
+        <a href="#" scroll-to class="navbar-brand white">
           C &amp; C
         </a>
       </div>
       <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.in">
         <ul class="nav navbar-nav right">
-          <li><a href="#details" scroll-to >Details</a></li>
-          <li><a href="#something" scroll-to >Something Else</a></li>
-          <li><a href="#another" scroll-to >Another Thing</a></li>
+          <li><a href="#thing-1" target="_self" scroll-to >Thing 1</a></li>
+          <li><a href="#thing-2" target="_self" scroll-to >Thing 2</a></li>
+          <li><a href="#thing-3" target="_self" scroll-to >Thing 3</a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="main"></div>
+  <div class="main-container">
+    <div class="main-bg"></div>
+  </div>
   <div class="tv-bg"></div>
   <div class="tv tv-main"></div>
   <div class="tv tv-click" ng-click="vm.openModal()"></div>
   <div class="spacer"></div>
-  <div class="row" id="details">
-    <div class="col-xs-12">
-      <p class="lead">Details</p>
+  <div class="row" id="thing-1">
+    <div class="col-sm-8 col-xs-12">
+      <h1>Thing 1</h1>
+      <p>
+        Spicy jalapeno rump tenderloin shoulder short ribs meatball jerky pork loin picanha pancetta sausage pig turkey shankle beef ball tip. Leberkas alcatra meatloaf ham hock chicken prosciutto andouille flank frankfurter biltong ground round filet mignon brisket ball tip. Shankle alcatra chuck brisket filet mignon ground round. Frankfurter landjaeger beef pork, sirloin boudin sausage jerky salami pork belly pork loin tongue capicola tail biltong. Ball tip prosciutto ham, picanha flank meatloaf hamburger swine pancetta doner boudin pig chicken biltong meatball. Jerky cow sausage ribeye fatback filet mignon sirloin bresaola burgdoggen t-bone meatloaf flank pancetta.
+      </p>
+    </div>
+    <div class="col-sm-4 col-xs-12">
+      thing here
     </div>
   </div>
-  <div class="row" id="something">
-    <div class="col-xs-12">
-      <p class="lead">Something</p>
+  <div class="row" id="thing-2">
+    <div class="col-sm-8 col-xs-12 col-sm-push-4">
+      <h1>Thing 2</h1>
+      <p>
+        Leberkas tenderloin filet mignon pork chop pastrami. Shank turkey drumstick tenderloin, bacon spare ribs sausage sirloin. Shankle pastrami pig, tongue bresaola tenderloin burgdoggen. Flank venison filet mignon, cupim pig pork belly salami pastrami drumstick kielbasa beef capicola short ribs biltong. Fatback kielbasa biltong cow ham. Cow salami turkey, tenderloin beef ribs swine biltong jowl pork leberkas ham.
+      </p>
+    </div>
+    <div class="col-sm-4 col-xs-12 col-sm-pull-8">
+      thing here
     </div>
   </div>
-  <div class="row" id="another">
-    <div class="col-xs-12">
-      <p class="lead">Another thing</p>
+  <div class="row" id="thing-3">
+    <div class="col-sm-8 col-xs-12">
+      <h1>Thing 3</h1>
+      <p>
+        Tail bresaola jowl, turducken pork leberkas pork belly drumstick landjaeger strip steak short ribs shank. Drumstick porchetta ribeye biltong jowl bacon shoulder, sausage ground round ham pancetta pork loin cupim. Ground round alcatra porchetta short loin turkey corned beef frankfurter cow t-bone brisket chicken pig rump kevin. Cupim ham frankfurter pork loin beef beef ribs ground round prosciutto tenderloin capicola landjaeger flank sirloin. Kielbasa ground round leberkas, shank pork chop cow pig pork loin picanha brisket.
+      </p>
+    </div>
+    <div class="col-sm-4 col-xs-12">
+      thing here
     </div>
   </div>
 </div>
 
 <div class="modal fade" id="gifModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog">
+  <div class="modal-dialog" style="margin-top:70px;">
     <div class="modal-content">
       <div class="modal-header cf">
         <p class="lead no-margin left"><b>Thanks for being here!</b></p>
