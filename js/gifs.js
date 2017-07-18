@@ -13,7 +13,8 @@
       ldb: new PouchDB("gifs"),
       gifs: [],
       run: run,
-      timeouts: []
+      timeouts: [],
+      mobile: isMobile()
     };
     return gifs;
 
@@ -52,9 +53,25 @@
 
       function changeChannel(gif, i){
         var timeout = $timeout(function(){
-          tv.css("background-image", `url("${gif}")`);
+          tv.css("background-image", "url("+gif+")");
         }, 4000*i);
         gifs.timeouts.push(timeout);
+      }
+    }
+
+    function isMobile() {
+      if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+      ){
+        return true;
+      }
+      else {
+        return false;
       }
     }
 

@@ -91,7 +91,7 @@ body {
     transition: 2s;
     background-color: rgba(230, 230, 230, 0.95); }
     .navbar-default.colorful .navbar-brand {
-      color: #4f839b; }
+      color: #4f839b !important; }
   .navbar-default.white {
     transition: 1s;
     background-color: rgba(230, 230, 230, 0.35); }
