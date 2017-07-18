@@ -2,7 +2,6 @@ rm -rf ./public
 mkdir ./public
 mkdir ./public/css
 echo "Made directories"
-sass sass/_media.scss:public/css/_media.css
 sass sass/index.scss:public/css/index.css
 echo "Sassed it up"
 cp -r bower_components public/bower_components
