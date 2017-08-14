@@ -3,9 +3,9 @@
   .module("wedding")
   .service("dbs", Gifs)
 
-  Gifs.$inject = ["$sce", "$timeout"];
+  Gifs.$inject = ["$sce", "$timeout", "$device"];
 
-  function Gifs($sce, $timeout){
+  function Gifs($sce, $timeout, $device){
     var gifs = {
       sync: sync,
       post: post,
@@ -13,18 +13,22 @@
       ldb: new PouchDB("gifs"),
       gifs: [],
       run: run,
-      timeouts: []
+      timeouts: [],
+      mobile: $device.isMobile()
     };
     return gifs;
 
     function sync(){
       return gifs.rdb.replicate.to(gifs.ldb).then(function(res){
         return gifs.ldb.query("client/gifs").then(function(res){
-          return res.rows.map(function(d){ return $sce.trustAsResourceUrl(d.value) });
-        }).then(function(urls){
+          var device = gifs.mobile ? "small" : "big";
+          var urls = res.rows.map(function(d){ return $sce.trustAsResourceUrl(d.value[device]) });
           gifs.gifs = urls;
-          return gifs.run();
-        });
+          return urls;
+        });//.then(function(urls){
+        //   gifs.gifs = urls;
+        //   return gifs.run();
+        // });
       });
     }
 
@@ -52,7 +56,7 @@
 
       function changeChannel(gif, i){
         var timeout = $timeout(function(){
-          tv.css("background-image", `url("${gif}")`);
+          tv.css("background-image", "url("+gif+")");
         }, 4000*i);
         gifs.timeouts.push(timeout);
       }

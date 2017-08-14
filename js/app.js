@@ -8,6 +8,7 @@
   .run(Run)
   .directive("scrollTo", scrollTo)
   .directive("scrollWatch", scrollWatch)
+  .service("$device", device)
 
   Router.$inject = ["$stateProvider", "$locationProvider"];
   function Router($stateProvider, $locationProvider){
@@ -16,7 +17,10 @@
       url: "/",
       controller: "ctrl",
       controllerAs: "vm",
-      templateUrl: "templates/main.html"
+      templateUrl: "templates/main.html",
+      resolve: {
+        loading: loading
+      }
     });
 
     $locationProvider.html5Mode(true);
@@ -27,15 +31,16 @@
     var path = $location.path().replace("/","");
     $location.path("/");
     $location.hash(path);
+  }
 
-    $timeout(function(){
-      var transitionEvts = "transitionend webkitTransitionEnd oTransitionEnd otransitionend";
-      angular.element("#loader").css("opacity", 0).on(transitionEvts, function(evt){
-        angular.element("#loader").css("display", "none");
-      });
-      dbs.sync();
-      $rootScope.$broadcast("scroll-to", path);
-    }, 2000);
+  loading.$inject = ["preloader", "dbs", "$location", "$rootScope"];
+  function loading(preloader, dbs, $location, $rootScope){
+    var images = ["../assets/bg-min.png"];
+    return preloader.preloadImages(images).then(function(res){
+      return dbs.sync();
+    }).catch(function(err){
+      console.log(err);
+    });
   }
 
   function scrollTo(){
@@ -79,24 +84,44 @@
       });
 
       if (scope.changed){
-        // angular.element(document.querySelector(".navbar-brand")).addClass("colorful").removeClass("white");
         angular.element(document.querySelector(".navbar")).addClass("colorful").removeClass("white");
       }
 
       function handler(){
         if (windowEl.scrollTop() > windowEl.height()-50 && !scope.changed){
           scope.changed = true;
-          // angular.element(document.querySelector(".navbar-brand")).addClass("colorful").removeClass("white");
           angular.element(document.querySelector(".navbar")).addClass("colorful").removeClass("white");
         }else if (windowEl.scrollTop() <= windowEl.height()-50 && scope.changed){
           scope.changed = false;
-          // angular.element(document.querySelector(".navbar-brand")).removeClass("colorful").addClass("white");
           angular.element(document.querySelector(".navbar")).removeClass("colorful").addClass("white");
         }
       }
 
       windowEl.on('scroll', scope.$apply.bind(scope, handler));
     }
+  }
+
+  function device(){
+    return {
+      isMobile: isMobile
+    };
+
+    function isMobile() {
+      if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+      ){
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
   }
 
 }())

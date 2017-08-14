@@ -11,9 +11,15 @@
     }
 
     function query(param, page){
-      var url = `https://api.giphy.com/v1/gifs/search?api_key=${giphy_key}&q=${param}&limit=25&offset=${page}&rating=PG-13&lang=en`;
+      var url = "https://api.giphy.com/v1/gifs/search?api_key="+giphy_key+"&q="+param+"&limit=25&offset="+page+"&rating=PG-13&lang=en";
       return $http.get(url).then(function(res){
-        return res.data.data.map(function(d){ return $sce.trustAsResourceUrl(d.images.original.url) });
+        return res.data.data.map(function(d){
+          console.log(d);
+          return {
+            big: $sce.trustAsResourceUrl(d.images.original.url),
+            small: $sce.trustAsResourceUrl(d.images.fixed_height_downsampled.url)
+          };
+        });
       });
     }
 

@@ -3,8 +3,8 @@
   .module("wedding")
   .controller("ctrl", ctrl)
 
-  ctrl.$inject = ["dbs", "giphy"];
-  function ctrl(dbs, giphy){
+  ctrl.$inject = ["dbs", "giphy", "$device", "$location", "$timeout"];
+  function ctrl(dbs, giphy, $device, $location, $timeout){
 
     var vm = this;
     vm.scroll = 0;
@@ -14,6 +14,25 @@
     vm.queryGif = queryGif;
     vm.scan = scan;
     vm.gifPreviews = [];
+    vm.mobile = $device.isMobile();
+
+    init();
+
+    function init(){
+      var path = $location.hash();
+      if (path){
+        $timeout(function(){
+          angular.element(document.querySelector("a[href='#"+path+"']")).click();
+        }, 500);
+      }
+
+      var transitionEvts = "transitionend webkitTransitionEnd oTransitionEnd otransitionend";
+      angular.element("#loader").css("opacity", 0).on(transitionEvts, function(evt){
+        angular.element("#loader").css("display", "none");
+      });
+
+      dbs.run();
+    }
 
     function openModal(){
       angular.element("#gifModal").modal("show");
@@ -47,7 +66,8 @@
     }
 
     function setGifFormBg(){
-      vm.gifForm.style = {"background-image": "url("+vm.gifPreviews[vm.gifForm.index]+")"};
+      var device = vm.mobile ? "small" : "big";
+      vm.gifForm.style = {"background-image": "url("+vm.gifPreviews[vm.gifForm.index][device]+")"};
     }
 
     function submitGif(){
@@ -55,7 +75,10 @@
       var posting = {
         _id: d.getTime() + "",
         message: vm.gifForm.message,
-        url: vm.gifPreviews[vm.gifForm.index].$$unwrapTrustedValue(),
+        url: {
+          small: vm.gifPreviews[vm.gifForm.index].small.$$unwrapTrustedValue(),
+          big: vm.gifPreviews[vm.gifForm.index].big.$$unwrapTrustedValue()
+        },
         search: vm.gifForm.search,
         index: (vm.gifForm.page*25) + vm.gifForm.index
       };
