@@ -96,10 +96,10 @@
                 <img height="40%" src="assets/giphy.png" alt="Powered by Giphy">
               </span>
             </div>
-
           </fieldset>
           <fieldset class="margin-top-10">
-            <div class="gif-container cf" ng-class="{'gif-short': vm.gifPreviews.length == 0}" ng-style="vm.gifForm.style">
+            <p ng-show="vm.noGifs && vm.gifForm.search.length >= 3">Nothing found. Try again.</p>
+            <div class="gif-container cf" ng-class="{'gif-short': vm.noGifs}" ng-style="vm.gifForm.style">
               <div class="scroll-btn left" ng-click="vm.scan(-1)" ng-hide="vm.gifForm.index == 0 && vm.gifForm.page == 0">
                 <i class="fa fa-fw fa-3x fa-chevron-left"></i>
               </div>

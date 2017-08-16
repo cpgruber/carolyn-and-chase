@@ -9,6 +9,7 @@
     var vm = this;
     vm.scroll = 0;
     vm.gifForm = {};
+    vm.noGifs = true;
     vm.openModal = openModal;
     vm.submitGif = submitGif;
     vm.queryGif = queryGif;
@@ -41,6 +42,7 @@
     function queryGif(param, page, index){
       if (param.length < 3){
         vm.gifPreviews = [];
+        vm.noGifs = true;
         return false;
       };
       return giphy.query(param, page*25).then(function(urls){
@@ -48,6 +50,7 @@
         vm.gifForm.index = index;
         vm.gifForm.page = page;
         setGifFormBg();
+        vm.noGifs = urls.length <= 0;
       });
     }
 
@@ -67,10 +70,18 @@
 
     function setGifFormBg(){
       var device = vm.mobile ? "small" : "big";
-      vm.gifForm.style = {"background-image": "url("+vm.gifPreviews[vm.gifForm.index][device]+")"};
+      try {
+        vm.gifForm.style = {"background-image": "url("+vm.gifPreviews[vm.gifForm.index][device]+")"};
+      }catch(err){
+        // err
+      }
     }
 
     function submitGif(){
+      if (!vm.gifForm.message && !vm.gifPreviews[vm.gifForm.index]){
+        return;
+      }
+
       var d = new Date();
       var posting = {
         _id: d.getTime() + "",
@@ -89,6 +100,7 @@
         dbs.gifs = gifs;
         vm.gifForm = {};
         vm.gifPreviews = [];
+        vm.noGifs = true;
         return dbs.run();
       }).catch(function(err){
         console.log("err", err);
