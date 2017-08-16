@@ -25,10 +25,7 @@
           var urls = res.rows.map(function(d){ return $sce.trustAsResourceUrl(d.value[device]) });
           gifs.gifs = urls;
           return urls;
-        });//.then(function(urls){
-        //   gifs.gifs = urls;
-        //   return gifs.run();
-        // });
+        });
       });
     }
 
@@ -50,7 +47,7 @@
         changeChannel(gif, i);
       });
       var timeout = $timeout(function(){
-        return gifs.sync();
+        return gifs.sync().then(function(){ gifs.run(); });
       }, gifs.gifs.length * 4000);
       gifs.timeouts.push(timeout);
 

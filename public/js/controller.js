@@ -89,7 +89,7 @@
         dbs.gifs = gifs;
         vm.gifForm = {};
         vm.gifPreviews = [];
-        return dbs.sync();
+        return dbs.run();
       }).catch(function(err){
         console.log("err", err);
       });
