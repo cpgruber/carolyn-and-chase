@@ -56,7 +56,7 @@ $desktop-height: 1px;
     }@else{
       top: ($t)+vmin;
       left: ($l)+vmax;
-      height: ($h)+vmin;
+      height: ($w/1.7)+vmax;
       width: ($w)+vmax;
     }
     @if $hide == 1 {
