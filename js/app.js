@@ -51,7 +51,6 @@
     return directive;
 
     function link(scope, el, attrs){
-
       el.on("click", function(){
         try {
           var target = angular.element(document.querySelector(attrs.href));
@@ -59,10 +58,9 @@
         }catch(err){
           var val = 0;
         }
-        angular.element(document.body).animate({scrollTop: val}, "slow");
+        angular.element("html,body").animate({scrollTop: val}, "slow");
       });
     }
-
   }
 
   scrollWatch.$inject = ["$window"];
