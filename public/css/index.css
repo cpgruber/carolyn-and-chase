@@ -240,63 +240,63 @@ p {
   .tv {
     top: 22vmin;
     left: 28vmax;
-    height: 20vmin;
+    height: 19.41176vmax;
     width: 33vmax;
     display: none; } }
 @media (min-width: 700px) {
   .tv {
     top: 19vmin;
     left: 17vmax;
-    height: 31vmin;
+    height: 30vmax;
     width: 51vmax;
     display: block; } }
 @media (min-width: 750px) {
   .tv {
     top: 19vmin;
     left: 19vmax;
-    height: 31vmin;
+    height: 27.94118vmax;
     width: 47.5vmax;
     display: block; } }
 @media (min-width: 800px) {
   .tv {
     top: 19vmin;
     left: 21vmax;
-    height: 31vmin;
+    height: 26.17647vmax;
     width: 44.5vmax;
     display: block; } }
 @media (min-width: 850px) {
   .tv {
     top: 19vmin;
     left: 23vmax;
-    height: 31.5vmin;
+    height: 24.41176vmax;
     width: 41.5vmax;
     display: block; } }
 @media (min-width: 900px) {
   .tv {
     top: 19.5vmin;
     left: 24.5vmax;
-    height: 31.5vmin;
+    height: 23.23529vmax;
     width: 39.5vmax;
     display: block; } }
 @media (min-width: 950px) {
   .tv {
     top: 19.5vmin;
     left: 25vmax;
-    height: 32.5vmin;
+    height: 22.64706vmax;
     width: 38.5vmax;
     display: block; } }
 @media (min-width: 1000px) {
   .tv {
     top: 20vmin;
     left: 25vmax;
-    height: 33vmin;
+    height: 22.64706vmax;
     width: 38.5vmax;
     display: block; } }
 @media (min-width: 1050px) {
   .tv {
     top: 20vmin;
     left: 25vmax;
-    height: 41vmin;
+    height: 22.64706vmax;
     width: 38.5vmax;
     display: block; } }
 @media (orientation: portrait) and (max-device-width: 767px) {
@@ -310,7 +310,7 @@ p {
   .tv {
     top: 19vmin;
     left: 23vmax;
-    height: 48vmin;
+    height: 26.47059vmax;
     width: 45vmax;
     display: block; } }
 
