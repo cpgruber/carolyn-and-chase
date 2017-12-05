@@ -11,14 +11,14 @@ body{
   font-family: 'Josefin Sans', sans-serif;
   background: url('../assets/texture.png');
 }
-p{
+p, ul{
   font-size: 1.4em;
 }
-.cf:after{
-  content: "";
-  display: table;
-  clear: both;
+
+.cf {
+  @include cf;
 }
+
 .no-margin{
   margin: 0 !important;
 }
@@ -227,3 +227,27 @@ p{
 // @include tablet-landscape {
 //   @include tv-media(25, 25, 25, 25, 0, 0)
 // }
+h1 {
+  text-align: center;
+}
+.detail-list {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+  li {
+    @include cf;
+    margin: 10px;
+  }
+  // li div{
+  //   float: left;
+  //   display: inline;
+  // }
+  // li:nth-child() div{
+  //   float: right;
+  // }
+}
+
+#map {
+  height: 480px;
+  width: 100%;
+}

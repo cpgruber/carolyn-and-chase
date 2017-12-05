@@ -68,13 +68,13 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   background: url("../assets/texture.png"); }
 
-p {
+p, ul {
   font-size: 1.4em; }
 
 .cf:after {
-  content: "";
   display: table;
-  clear: both; }
+  clear: both;
+  content: ''; }
 
 .no-margin {
   margin: 0 !important; }
@@ -313,5 +313,22 @@ p {
     height: 26.47059vmax;
     width: 45vmax;
     display: block; } }
+h1 {
+  text-align: center; }
+
+.detail-list {
+  list-style: none;
+  padding-left: 0;
+  text-align: center; }
+  .detail-list li {
+    margin: 10px; }
+    .detail-list li:after {
+      display: table;
+      clear: both;
+      content: ''; }
+
+#map {
+  height: 480px;
+  width: 100%; }
 
 /*# sourceMappingURL=index.css.map */

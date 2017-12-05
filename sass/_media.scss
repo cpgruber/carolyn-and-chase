@@ -4,6 +4,14 @@ $tablet-width: 768px;
 $desktop-width: 1024px;
 $desktop-height: 1px;
 
+@mixin cf {
+  &:after {
+    display: table;
+    clear: both;
+    content: '';
+  }
+}
+
 @mixin tablet {
   @media (min-device-width: #{$tablet-width}) and (max-device-width: #{$desktop-width - 1px}) {
     @content;
