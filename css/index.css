@@ -122,7 +122,8 @@ p, ul {
   height: 100vh; }
 
 .row {
-  padding-top: 70px; }
+  padding-top: 70px;
+  padding-bottom: 70px; }
 
 .footer {
   height: 100px;
@@ -330,5 +331,13 @@ h1 {
 #map {
   height: 480px;
   width: 100%; }
+
+.parallax {
+  height: 400px;
+  background-image: url("../assets/bg-min.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 /*# sourceMappingURL=index.css.map */
