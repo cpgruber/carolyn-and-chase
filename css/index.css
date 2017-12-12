@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Abril+Fatface|Josefin+Sans");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed");
 @keyframes heartbeat {
   0% {
     transform: scale(0.75); }
@@ -65,7 +65,7 @@
 
 body {
   width: 100%;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Barlow Semi Condensed', sans-serif;
   background: url("../assets/texture.png"); }
 
 p, ul {
@@ -93,16 +93,17 @@ p, ul {
   .navbar-default.colorful {
     transition: 2s;
     background-color: rgba(230, 230, 230, 0.95); }
-    .navbar-default.colorful .navbar-brand {
+    .navbar-default.colorful .navbar-brand, .navbar-default.colorful .navbar-nav a {
       color: #4f839b !important; }
   .navbar-default.white {
     transition: 1s;
     background-color: rgba(230, 230, 230, 0.35); }
-    .navbar-default.white .navbar-brand {
+    .navbar-default.white .navbar-brand, .navbar-default.white .navbar-nav a {
       color: rgba(220, 220, 220, 0.8); }
+  .navbar-default .navbar-brand, .navbar-default .navbar-nav a {
+    transition: color 2s; }
   .navbar-default .navbar-brand {
-    transition: color 2s;
-    font-family: 'Abril Fatface', cursive; }
+    font-family: 'Playfair Display', serif; }
     .navbar-default .navbar-brand:active, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:visited {
       color: #f0f0f0; }
     .navbar-default .navbar-brand img {
@@ -110,13 +111,6 @@ p, ul {
   .navbar-default .navbar-toggle {
     background: transparent;
     border: 0; }
-
-.navbar .nav a {
-  font-size: 1.3em;
-  color: rgba(30, 30, 30, 0.8) !important;
-  font-weight: bold; }
-.navbar .nav li:hover {
-  background-color: rgba(230, 230, 230, 0.5); }
 
 .spacer {
   height: 100vh; }
@@ -339,5 +333,32 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
+
+.pic {
+  width: 250px;
+  margin: 10px;
+  padding: 10px;
+  max-height: 300px;
+  border: 1px solid ghostwhite;
+  background-color: white;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  .pic.right {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    transform: rotate(3deg); }
+  .pic .img {
+    display: inline-block;
+    overflow: hidden;
+    width: 230px;
+    max-height: 230px; }
+  .pic .caption {
+    padding-top: 5px;
+    font-size: 0.95em;
+    font-family: monospace; }
 
 /*# sourceMappingURL=index.css.map */

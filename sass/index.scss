@@ -1,6 +1,6 @@
 // sass --watch sass:css
 
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed');
 @import "_media.scss";
 
 *{
@@ -8,7 +8,7 @@
 }
 body{
   width: 100%;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Barlow Semi Condensed', sans-serif;
   background: url('../assets/texture.png');
 }
 p, ul{
@@ -36,20 +36,22 @@ p, ul{
   &.colorful {
     transition: 2s;
     background-color: rgba(230,230,230,0.95);
-    .navbar-brand {
+    .navbar-brand, .navbar-nav a {
       color: #4f839b !important;
     }
   }
   &.white {
     transition: 1s;
     background-color: rgba(230,230,230,0.35);
-    .navbar-brand {
+    .navbar-brand, .navbar-nav a {
       color: rgba(220,220,220,0.8);
     }
   }
-  .navbar-brand{
+  .navbar-brand, .navbar-nav a {
     transition: color 2s;
-    font-family: 'Abril Fatface', cursive;
+  }
+  .navbar-brand {
+    font-family: 'Playfair Display', serif;
     &:active,&:hover,&:focus,&:visited{
       color: rgb(240,240,240);
     }
@@ -62,16 +64,16 @@ p, ul{
     border: 0;
   }
 }
-.navbar{
-  .nav a{
-    font-size: 1.3em;
-    color: rgba(30,30,30,0.8) !important;
-    font-weight: bold;
-  }
-  .nav li:hover{
-    background-color: rgba(230,230,230,0.5);
-  }
-}
+// .navbar{
+//   .nav a{
+//     font-size: 1.3em;
+//     color: rgba(30,30,30,0.8) !important;
+//     font-weight: bold;
+//   }
+//   .nav li:hover{
+//     background-color: rgba(230,230,230,0.5);
+//   }
+// }
 .spacer{
   height: 100vh;
 }
@@ -254,4 +256,35 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.pic {
+  width: 250px;
+  margin: 10px;
+  padding: 10px;
+  max-height: 300px;
+  border: 1px solid ghostwhite;
+  background-color: white;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  &.right {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    transform: rotate(3deg);
+  }
+  .img {
+    display: inline-block;
+    overflow: hidden;
+    width: 230px;
+    max-height: 230px;
+  }
+  .caption {
+    padding-top: 5px;
+    font-size: 0.95em;
+    font-family: monospace;
+  }
 }
