@@ -1,7 +1,8 @@
 // sass --watch sass:css
 
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed:400,700');
 @import "_media.scss";
+$color: #4f839b;
 
 *{
   margin: 0;
@@ -14,6 +15,9 @@ body{
 p, ul{
   font-size: 1.4em;
 }
+.center {
+  text-align: center;
+}
 
 .cf {
   @include cf;
@@ -24,6 +28,9 @@ p, ul{
 }
 .margin-top-10{
   margin-top: 10px !important;
+}
+.margin-top-20{
+  margin-top: 20px !important;
 }
 .left{
   float: left;
@@ -37,14 +44,19 @@ p, ul{
     transition: 2s;
     background-color: rgba(230,230,230,0.95);
     .navbar-brand, .navbar-nav a {
-      color: #4f839b !important;
+      color: $color !important;
     }
   }
   &.white {
     transition: 1s;
-    background-color: rgba(230,230,230,0.35);
+    background-color: rgba($color, 0.65);
     .navbar-brand, .navbar-nav a {
       color: rgba(220,220,220,0.8);
+    }
+    .navbar-nav a {
+      &:hover,&:focus{
+        color: rgba(220,220,220,0.8) !important;
+      }
     }
   }
   .navbar-brand, .navbar-nav a {
@@ -64,16 +76,6 @@ p, ul{
     border: 0;
   }
 }
-// .navbar{
-//   .nav a{
-//     font-size: 1.3em;
-//     color: rgba(30,30,30,0.8) !important;
-//     font-weight: bold;
-//   }
-//   .nav li:hover{
-//     background-color: rgba(230,230,230,0.5);
-//   }
-// }
 .spacer{
   height: 100vh;
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed:400,700");
 @keyframes heartbeat {
   0% {
     transform: scale(0.75); }
@@ -71,6 +71,9 @@ body {
 p, ul {
   font-size: 1.4em; }
 
+.center {
+  text-align: center; }
+
 .cf:after {
   display: table;
   clear: both;
@@ -81,6 +84,9 @@ p, ul {
 
 .margin-top-10 {
   margin-top: 10px !important; }
+
+.margin-top-20 {
+  margin-top: 20px !important; }
 
 .left {
   float: left; }
@@ -97,9 +103,11 @@ p, ul {
       color: #4f839b !important; }
   .navbar-default.white {
     transition: 1s;
-    background-color: rgba(230, 230, 230, 0.35); }
+    background-color: rgba(79, 131, 155, 0.65); }
     .navbar-default.white .navbar-brand, .navbar-default.white .navbar-nav a {
       color: rgba(220, 220, 220, 0.8); }
+    .navbar-default.white .navbar-nav a:hover, .navbar-default.white .navbar-nav a:focus {
+      color: rgba(220, 220, 220, 0.8) !important; }
   .navbar-default .navbar-brand, .navbar-default .navbar-nav a {
     transition: color 2s; }
   .navbar-default .navbar-brand {
