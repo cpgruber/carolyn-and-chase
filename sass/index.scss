@@ -2,8 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed:400,700');
 @import "_media.scss";
-$color: #4f839b;
-
+$color: rgba(27, 96, 128, 0.65);
 *{
   margin: 0;
 }
@@ -40,16 +39,25 @@ p, ul{
 }
 .navbar-default{
   border: 0;
+  .navbar-toggle {
+    &:hover,&:focus{
+      background-color: rgba(0,0,0,0) !important;
+    }
+  }
   &.colorful {
     transition: 2s;
     background-color: rgba(230,230,230,0.95);
     .navbar-brand, .navbar-nav a {
       color: $color !important;
     }
+    .icon-bar {
+      transition: 2s;
+      background-color: $color !important;
+    }
   }
   &.white {
     transition: 1s;
-    background-color: rgba($color, 0.65);
+    background-color: $color;
     .navbar-brand, .navbar-nav a {
       color: rgba(220,220,220,0.8);
     }
@@ -57,6 +65,10 @@ p, ul{
       &:hover,&:focus{
         color: rgba(220,220,220,0.8) !important;
       }
+    }
+    .icon-bar {
+      transition: 2s;
+      background-color: rgba(220,220,220,0.8) !important;
     }
   }
   .navbar-brand, .navbar-nav a {
@@ -104,6 +116,7 @@ p, ul{
   position: absolute;
   left: 0;
   height: 100vmin;
+  width: 100vw;
   width: 100vmax;
   z-index: 2;
   @include portrait {
@@ -153,6 +166,7 @@ p, ul{
   position: absolute;
   left: 0;
   height: 100vmin;
+  width: 100vw;
   width: 100vmax;
   @include portrait {
     height: 100vh;
@@ -264,7 +278,7 @@ h1 {
   @include mobile {
     display: block;
     float: none !important;
-    margin: -130px 20px 20px 20px;
+    margin: -130px auto 20px auto;
   }
   width: 300px;
   margin: -130px 20px 20px -150px;

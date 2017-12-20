@@ -63,6 +63,9 @@ $desktop-height: 1px;
       width: ($w)+vw;
     }@else{
       top: ($t)+vmin;
+      left: ($l)+vw;
+      height: ($w/1.7)+vw;
+      width: ($w)+vw;
       left: ($l)+vmax;
       height: ($w/1.7)+vmax;
       width: ($w)+vmax;
