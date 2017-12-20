@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Abril+Fatface|Josefin+Sans");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed:400,700");
 @keyframes heartbeat {
   0% {
     transform: scale(0.75); }
@@ -65,11 +65,14 @@
 
 body {
   width: 100%;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Barlow Semi Condensed', sans-serif;
   background: url("../assets/texture.png"); }
 
 p, ul {
   font-size: 1.4em; }
+
+.center {
+  text-align: center; }
 
 .cf:after {
   display: table;
@@ -82,6 +85,9 @@ p, ul {
 .margin-top-10 {
   margin-top: 10px !important; }
 
+.margin-top-20 {
+  margin-top: 20px !important; }
+
 .left {
   float: left; }
 
@@ -93,16 +99,19 @@ p, ul {
   .navbar-default.colorful {
     transition: 2s;
     background-color: rgba(230, 230, 230, 0.95); }
-    .navbar-default.colorful .navbar-brand {
+    .navbar-default.colorful .navbar-brand, .navbar-default.colorful .navbar-nav a {
       color: #4f839b !important; }
   .navbar-default.white {
     transition: 1s;
-    background-color: rgba(230, 230, 230, 0.35); }
-    .navbar-default.white .navbar-brand {
+    background-color: rgba(79, 131, 155, 0.65); }
+    .navbar-default.white .navbar-brand, .navbar-default.white .navbar-nav a {
       color: rgba(220, 220, 220, 0.8); }
+    .navbar-default.white .navbar-nav a:hover, .navbar-default.white .navbar-nav a:focus {
+      color: rgba(220, 220, 220, 0.8) !important; }
+  .navbar-default .navbar-brand, .navbar-default .navbar-nav a {
+    transition: color 2s; }
   .navbar-default .navbar-brand {
-    transition: color 2s;
-    font-family: 'Abril Fatface', cursive; }
+    font-family: 'Playfair Display', serif; }
     .navbar-default .navbar-brand:active, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:visited {
       color: #f0f0f0; }
     .navbar-default .navbar-brand img {
@@ -110,13 +119,6 @@ p, ul {
   .navbar-default .navbar-toggle {
     background: transparent;
     border: 0; }
-
-.navbar .nav a {
-  font-size: 1.3em;
-  color: rgba(30, 30, 30, 0.8) !important;
-  font-weight: bold; }
-.navbar .nav li:hover {
-  background-color: rgba(230, 230, 230, 0.5); }
 
 .spacer {
   height: 100vh; }
@@ -339,5 +341,54 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
+
+.pic {
+  width: 300px;
+  margin: -130px 20px 20px -150px;
+  padding: 10px;
+  max-height: 360px;
+  border: 1px solid ghostwhite;
+  background-color: white;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  @media (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .pic {
+      display: block;
+      float: none !important;
+      margin: -130px 20px 20px 20px; } }
+  .pic.right {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    transform: rotate(3deg);
+    margin: -130px -150px 20px 20px; }
+  .pic .img {
+    display: inline-block;
+    overflow: hidden;
+    width: 280px;
+    max-height: 280px; }
+  .pic .caption {
+    padding-top: 5px;
+    font-size: 0.95em;
+    font-family: monospace; }
+
+.custom-icon {
+  height: 30px !important;
+  width: 30px !important;
+  margin-left: -15px !important;
+  margin-top: -15px !important;
+  overflow: hidden; }
+  .custom-icon div {
+    border-radius: 50%;
+    border: 2px solid ghostwhite;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding-top: 3px; }
+  .custom-icon i {
+    color: white; }
 
 /*# sourceMappingURL=index.css.map */

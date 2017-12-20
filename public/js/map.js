@@ -34,10 +34,9 @@
 
       function addPoint(d) {
         var marker = L.marker([d.lat, d.lon], {
-          icon: L.mapbox.marker.icon({
-            'marker-size': 'large',
-            'marker-symbol': d['icon-name'],
-            'marker-color': d['icon-color']
+          icon: L.divIcon({
+            className: "custom-icon",
+            html: "<div style='background-color:"+d['icon-color']+"'><i class='fa fa-fw fa-lg fa-"+d['icon-name']+"'></i></div>"
           })
         }).bindPopup(formatPopup(d));
         marker.addTo(layer);

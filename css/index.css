@@ -343,30 +343,52 @@ h1 {
   background-size: cover; }
 
 .pic {
-  width: 250px;
-  margin: 10px;
+  width: 300px;
+  margin: -130px 20px 20px -150px;
   padding: 10px;
-  max-height: 300px;
+  max-height: 360px;
   border: 1px solid ghostwhite;
   background-color: white;
-  -webkit-transform: rotate(-2deg);
-  -moz-transform: rotate(-2deg);
-  transform: rotate(-2deg);
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  transform: rotate(-3deg);
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  @media (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .pic {
+      display: block;
+      float: none !important;
+      margin: -130px 20px 20px 20px; } }
   .pic.right {
     -webkit-transform: rotate(3deg);
     -moz-transform: rotate(3deg);
-    transform: rotate(3deg); }
+    transform: rotate(3deg);
+    margin: -130px -150px 20px 20px; }
   .pic .img {
     display: inline-block;
     overflow: hidden;
-    width: 230px;
-    max-height: 230px; }
+    width: 280px;
+    max-height: 280px; }
   .pic .caption {
     padding-top: 5px;
     font-size: 0.95em;
     font-family: monospace; }
+
+.custom-icon {
+  height: 30px !important;
+  width: 30px !important;
+  margin-left: -15px !important;
+  margin-top: -15px !important;
+  overflow: hidden; }
+  .custom-icon div {
+    border-radius: 50%;
+    border: 2px solid ghostwhite;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding-top: 3px; }
+  .custom-icon i {
+    color: white; }
 
 /*# sourceMappingURL=index.css.map */
