@@ -22,6 +22,7 @@
       scope.locations;
       scope.toggleFilter = toggleFilter;
       scope.types = [];
+      scope.labels = {attraction: 'Sights & Such', food: 'Food & Drink', logistics: 'Logistics'};
       scope.zoomTo = zoom;
 
       L.mapbox.accessToken = 'pk.eyJ1IjoiY2hhc2VncnViZXIiLCJhIjoidV9tdHNYSSJ9.RRyvDLny4YwDwzPCeOJZrA';
@@ -47,7 +48,8 @@
             });
             return p;
           }, []);
-        scope.active = angular.copy(scope.types);
+
+        scope.active = angular.copy(scope.types.filter(function (d) {return d !== "logistics"}));
         filterAndZoom();
       });
 
@@ -55,7 +57,7 @@
         var marker = L.marker([d.lat, d.lon], {
           icon: L.divIcon({
             className: "custom-icon",
-            html: "<div style='background-color:"+d['icon-color']+"'><i class='fa fa-fw fa-lg fa-"+d['icon-name']+"'></i></div>",
+            html: "<div class='"+d.type+"'><i class='fa fa-fw fa-lg fa-"+d['icon-name']+"'></i></div>",
             popupAnchor: [0,-10]
           })
         }).bindPopup(formatPopup(d));
@@ -92,6 +94,10 @@
         layer.clearLayers();
         scope.locations = scope.data.filter(function (d) {
           return scope.active.indexOf(d.type) > -1;
+        }).sort(function (a,b) {
+          if(a.name < b.name) return -1;
+          if(a.name > b.name) return 1;
+          return 0;
         });
         scope.locations.forEach(function (d) {
           addPoint(d);

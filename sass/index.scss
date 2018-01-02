@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Barlow+Semi+Condensed:400,700');
 @import "_media.scss";
 $color: rgba(27, 96, 128, 0.65);
+$mapColors: #5E4B5F, #C64644, rgb(27, 96, 128);
+$mapClasses: attraction, logistics, food;
+
 *{
   margin: 0;
 }
@@ -329,6 +332,11 @@ h1 {
   i {
     color: white;
   }
+  @for $i from 1 through length($mapColors) {
+    div.#{nth($mapClasses, $i)} {
+      background-color: nth($mapColors, $i)
+    }
+  }
 }
 
 .list-icon {
@@ -350,7 +358,7 @@ h1 {
 .map-list {
   list-style: none;
   overflow-y: auto;
-  height: 440px;
+  height: 520px;
   margin: 0;
   padding: 0 0 5px 0;
   border-radius: 5px;
@@ -384,11 +392,35 @@ h1 {
   display: block;
   margin: 0 5px;
   li {
+    position: relative;
     float: left;
-    width: 40px;
+    width: calc((100% / #{length($mapClasses)}) - 4px);
+    cursor: pointer;
     height: 40px;
+    margin: 0 2px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    border: 2px solid red;
+    color: white;
+    text-align: center;
+    padding: 0 5px;
+    line-height: 40px;
+    &.inactive:after {
+      content: '';
+      position: absolute;
+      top: 19px;
+      left: 10%;
+      display: block;
+      width: 80%;
+      height: 1px;
+      border: 2px solid rgba(ghostwhite, 0.8);
+    }
+  }
+  @for $i from 1 through length($mapColors) {
+    li.#{nth($mapClasses, $i)} {
+      background-color: nth($mapColors, $i)
+    }
+    li.#{nth($mapClasses, $i)}.inactive {
+      background-color: rgba(nth($mapColors, $i), 0.6);
+    }
   }
 }

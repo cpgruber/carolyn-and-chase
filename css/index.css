@@ -433,6 +433,15 @@ h1 {
   .custom-icon i,
   .list-icon i {
     color: white; }
+  .custom-icon div.attraction,
+  .list-icon div.attraction {
+    background-color: #5E4B5F; }
+  .custom-icon div.logistics,
+  .list-icon div.logistics {
+    background-color: #C64644; }
+  .custom-icon div.food,
+  .list-icon div.food {
+    background-color: #1b6080; }
 
 .list-icon {
   margin-left: auto !important;
@@ -450,7 +459,7 @@ h1 {
 .map-list {
   list-style: none;
   overflow-y: auto;
-  height: 440px;
+  height: 520px;
   margin: 0;
   padding: 0 0 5px 0;
   border-radius: 5px;
@@ -479,11 +488,38 @@ h1 {
   display: block;
   margin: 0 5px; }
   .map-toggle-list li {
+    position: relative;
     float: left;
-    width: 40px;
+    width: calc((100% / 3) - 4px);
+    cursor: pointer;
     height: 40px;
+    margin: 0 2px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    border: 2px solid red; }
+    color: white;
+    text-align: center;
+    padding: 0 5px;
+    line-height: 40px; }
+    .map-toggle-list li.inactive:after {
+      content: '';
+      position: absolute;
+      top: 19px;
+      left: 10%;
+      display: block;
+      width: 80%;
+      height: 1px;
+      border: 2px solid rgba(248, 248, 255, 0.8); }
+  .map-toggle-list li.attraction {
+    background-color: #5E4B5F; }
+  .map-toggle-list li.attraction.inactive {
+    background-color: rgba(94, 75, 95, 0.6); }
+  .map-toggle-list li.logistics {
+    background-color: #C64644; }
+  .map-toggle-list li.logistics.inactive {
+    background-color: rgba(198, 70, 68, 0.6); }
+  .map-toggle-list li.food {
+    background-color: #1b6080; }
+  .map-toggle-list li.food.inactive {
+    background-color: rgba(27, 96, 128, 0.6); }
 
 /*# sourceMappingURL=index.css.map */
