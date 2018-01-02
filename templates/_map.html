@@ -1,0 +1,22 @@
+<div>
+  <div class="col-md-3 col-sm-4 col-xs-12 margin-top-10">
+    <ul class="map-toggle-list cf">
+      <li ng-repeat="type in types" ng-click="toggleFilter(type)">
+        {{type}}
+      </li>
+    </ul>
+    <ul class="map-list">
+      <li ng-repeat="location in locations" class="cf" ng-click="zoomTo()">
+        <div class="list-icon">
+          <div ng-style="{'background-color': location['icon-color']}">
+            <i class="fa fa-fw" ng-class="'fa-'+location['icon-name']"></i>
+          </div>
+        </div>
+        <p>{{location.name}}</p>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9 col-sm-8 col-xs-12 margin-top-10">
+    <div id='map'></div>
+  </div>
+</div>
