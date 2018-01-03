@@ -1,5 +1,11 @@
 <div>
-  <div class="col-md-3 col-sm-4 col-xs-12 margin-top-10">
+  <div class="col-md-9 col-md-push-3 col-sm-8 col-sm-push-4 col-xs-12 margin-top-10">
+    <ul class="map-toggle-list cf">
+      <li ng-repeat="type in types" ng-click="toggleFilter(type)" ng-class="[type, {inactive: active.indexOf(type) === -1}]">{{labels[type]}}</li>
+    </ul>
+    <div id='map'></div>
+  </div>
+  <div class="col-md-3 col-md-pull-9 col-sm-4 col-sm-pull-8 col-xs-12 margin-top-10">
     <ul class="map-list">
       <li ng-repeat="location in locations" class="cf" ng-click="zoomTo()">
         <div class="list-icon">
@@ -10,11 +16,5 @@
         <p>{{location.name}}</p>
       </li>
     </ul>
-  </div>
-  <div class="col-md-9 col-sm-8 col-xs-12 margin-top-10">
-    <ul class="map-toggle-list cf">
-      <li ng-repeat="type in types" ng-click="toggleFilter(type)" ng-class="[type, {inactive: active.indexOf(type) === -1}]">{{labels[type]}}</li>
-    </ul>
-    <div id='map'></div>
   </div>
 </div>

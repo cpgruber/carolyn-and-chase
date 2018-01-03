@@ -5,6 +5,7 @@
 $color: rgba(27, 96, 128, 0.65);
 $mapColors: #5E4B5F, #C64644, rgb(27, 96, 128);
 $mapClasses: attraction, logistics, food;
+$mobileScrollWidth: 90%;
 
 *{
   margin: 0;
@@ -266,6 +267,10 @@ h1 {
 #map {
   height: 480px;
   width: 100%;
+  @include mobile {
+    height: 280px;
+    width: $mobileScrollWidth;
+  }
 }
 
 .parallax {
@@ -384,6 +389,10 @@ h1 {
     padding-left: 33px;
     padding-top: 3px;
   }
+  @include mobile {
+    height: 180px;
+    width: $mobileScrollWidth;
+  }
 }
 
 .map-toggle-list {
@@ -391,6 +400,11 @@ h1 {
   padding-left: 0;
   display: block;
   margin: 0 5px;
+  width: 100%;
+  @include mobile {
+    width: $mobileScrollWidth;
+    margin: 0;
+  }
   li {
     position: relative;
     float: left;

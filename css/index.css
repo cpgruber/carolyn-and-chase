@@ -373,6 +373,10 @@ h1 {
 #map {
   height: 480px;
   width: 100%; }
+  @media (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    #map {
+      height: 280px;
+      width: 90%; } }
 
 .parallax {
   height: 400px;
@@ -481,12 +485,21 @@ h1 {
     font-size: 0.85em;
     padding-left: 33px;
     padding-top: 3px; }
+  @media (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .map-list {
+      height: 180px;
+      width: 90%; } }
 
 .map-toggle-list {
   list-style: none;
   padding-left: 0;
   display: block;
-  margin: 0 5px; }
+  margin: 0 5px;
+  width: 100%; }
+  @media (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .map-toggle-list {
+      width: 90%;
+      margin: 0; } }
   .map-toggle-list li {
     position: relative;
     float: left;
