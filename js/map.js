@@ -31,7 +31,7 @@
       }).setView([40, -74.50], 9);
 
       L.control.zoom({
-        position:'topright'
+        position:'bottomleft'
       }).addTo(map);
 
       var layer = L.mapbox.featureLayer().addTo(map);
