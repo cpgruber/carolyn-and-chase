@@ -2,7 +2,8 @@
   angular
   .module("wedding", [
     "ui.router",
-    "pouchdb"
+    "pouchdb",
+    "constants"
   ])
   .config(Router)
   .run(Run)
@@ -26,11 +27,13 @@
     $locationProvider.html5Mode(true);
   }
 
-  Run.$inject = ["dbs", "$timeout", "$location", "$rootScope"];
-  function Run(dbs, $timeout, $location, $rootScope){
+  Run.$inject = ["dbs", "$timeout", "$location", "$window", "ga_key"];
+  function Run(dbs, $timeout, $location, $window, ga_key){
     var path = $location.path().replace("/","");
     $location.path("/");
     $location.hash(path);
+    // initialise google analytics
+    $window.ga('create', ga_key, 'auto');
   }
 
   loading.$inject = ["preloader", "dbs", "$location", "$rootScope"];
@@ -43,7 +46,8 @@
     });
   }
 
-  function scrollTo(){
+  scrollTo.$inject = ["$location", "$window"];
+  function scrollTo($location, $window){
     var directive = {
       link: link,
       restrict: "A"
@@ -59,6 +63,8 @@
           var val = 0;
         }
         angular.element("html,body").animate({scrollTop: val}, "slow");
+        // track pageview on state change
+        $window.ga('send', 'pageview', $location.path());
       });
     }
   }
