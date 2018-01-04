@@ -93,7 +93,7 @@ p, ul{
   }
 }
 .spacer{
-  height: 100vh;
+  height: 100vmin;
 }
 .row{
   padding-top: 70px;
@@ -271,23 +271,13 @@ h1 {
     height: 280px;
     width: $mobileScrollWidth;
   }
-}
-
-.parallax {
-  height: 400px;
-  background-image: url('../assets/bg-min.png');
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @media (max-width: 767px) {
+    height: 40vh;
+    width: $mobileScrollWidth;
+  }
 }
 
 .pic {
-  @include mobile {
-    display: block;
-    float: none !important;
-    margin: -130px auto 20px auto;
-  }
   width: 300px;
   margin: -130px 20px 20px -150px;
   padding: 10px;
@@ -305,6 +295,16 @@ h1 {
     -moz-transform: rotate(3deg);
     transform: rotate(3deg);
     margin: -130px -150px 20px 20px;
+  }
+  @include mobile {
+    display: block;
+    float: none !important;
+    margin: -130px auto 20px auto !important;
+  }
+  @media (max-width: 767px) {
+    display: block;
+    float: none !important;
+    margin: -130px auto 20px auto !important;
   }
   .img {
     display: inline-block;
@@ -389,8 +389,8 @@ h1 {
     padding-left: 33px;
     padding-top: 3px;
   }
-  @include mobile {
-    height: 180px;
+  @media (max-width: 767px) {
+    height: 30vh;
     width: $mobileScrollWidth;
   }
 }
@@ -399,9 +399,13 @@ h1 {
   list-style: none;
   padding-left: 0;
   display: block;
-  margin: 0 5px;
+  margin: 0;
   width: 100%;
   @include mobile {
+    width: $mobileScrollWidth;
+    margin: 0;
+  }
+  @media (max-width: 767px)  {
     width: $mobileScrollWidth;
     margin: 0;
   }

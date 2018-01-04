@@ -129,7 +129,7 @@ p, ul {
     border: 0; }
 
 .spacer {
-  height: 100vh; }
+  height: 100vmin; }
 
 .row {
   padding-top: 70px;
@@ -377,14 +377,10 @@ h1 {
     #map {
       height: 280px;
       width: 90%; } }
-
-.parallax {
-  height: 400px;
-  background-image: url("../assets/bg-min.png");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; }
+  @media (max-width: 767px) {
+    #map {
+      height: 40vh;
+      width: 90%; } }
 
 .pic {
   width: 300px;
@@ -399,16 +395,21 @@ h1 {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
-  @media (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-    .pic {
-      display: block;
-      float: none !important;
-      margin: -130px auto 20px auto; } }
   .pic.right {
     -webkit-transform: rotate(3deg);
     -moz-transform: rotate(3deg);
     transform: rotate(3deg);
     margin: -130px -150px 20px 20px; }
+  @media (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .pic {
+      display: block;
+      float: none !important;
+      margin: -130px auto 20px auto !important; } }
+  @media (max-width: 767px) {
+    .pic {
+      display: block;
+      float: none !important;
+      margin: -130px auto 20px auto !important; } }
   .pic .img {
     display: inline-block;
     overflow: hidden;
@@ -485,18 +486,22 @@ h1 {
     font-size: 0.85em;
     padding-left: 33px;
     padding-top: 3px; }
-  @media (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  @media (max-width: 767px) {
     .map-list {
-      height: 180px;
+      height: 30vh;
       width: 90%; } }
 
 .map-toggle-list {
   list-style: none;
   padding-left: 0;
   display: block;
-  margin: 0 5px;
+  margin: 0;
   width: 100%; }
   @media (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .map-toggle-list {
+      width: 90%;
+      margin: 0; } }
+  @media (max-width: 767px) {
     .map-toggle-list {
       width: 90%;
       margin: 0; } }
