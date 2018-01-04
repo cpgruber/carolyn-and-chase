@@ -65,8 +65,12 @@
       }
 
       function formatPopup(d) {
-        var html = "<h3>"+d.name+"</h3>";
+        var html = "<div class='cf'><h3>"+d.name+"</h3>";
         html += "<p>"+d.notes+"</p>";
+        if (d.website) {
+          html += "<a class='right' target='_blank' href='"+d.website+"'>More info</a>";
+        }
+        html += "</div>";
         return html;
       }
 
