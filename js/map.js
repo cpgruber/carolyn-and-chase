@@ -48,7 +48,7 @@
             });
             return p;
           }, []);
-
+        map.options.maxBounds = getMaxBounds(data.data);
         scope.active = angular.copy(scope.types.filter(function (d) {return d !== "logistics"}));
         filterAndZoom();
       });
@@ -90,7 +90,6 @@
         } else if (scope.active.length > 1) {
           scope.active.splice(idx, 1);
         }
-
         return filterAndZoom();
       }
 
@@ -107,6 +106,15 @@
           addPoint(d);
         });
         map.fitBounds(layer.getBounds());
+      }
+
+      function getMaxBounds(data) {
+        var lats = data.map(function (d) {return +d.lat}).sort();
+        var lons = data.map(function (d) {return +d.lon}).sort();
+        debugger
+        var sw = L.latLng(lats[0], lons[lons.length-1]);
+        var ne = L.latLng(lats[lats.length-1], lons[0]);
+        return L.latLngBounds(sw, ne);
       }
 
     }

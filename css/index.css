@@ -464,7 +464,7 @@ h1 {
 .map-list {
   list-style: none;
   overflow-y: auto;
-  height: 520px;
+  max-height: 520px;
   margin: 0;
   padding: 0 0 5px 0;
   border-radius: 5px;
@@ -539,5 +539,9 @@ h1 {
     background-color: #1b6080; }
   .map-toggle-list li.food.inactive {
     background-color: rgba(27, 96, 128, 0.6); }
+
+.generic-list {
+  list-style: none;
+  padding-left: 60px; }
 
 /*# sourceMappingURL=index.css.map */
