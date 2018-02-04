@@ -32,8 +32,6 @@
     var path = $location.path().replace("/","");
     $location.path("/");
     $location.hash(path);
-    // initialise google analytics
-    $window.ga('create', ga_key, 'auto');
   }
 
   loading.$inject = ["preloader", "dbs", "$location", "$rootScope"];

@@ -111,7 +111,6 @@
       function getMaxBounds(data) {
         var lats = data.map(function (d) {return +d.lat}).sort();
         var lons = data.map(function (d) {return +d.lon}).sort();
-        debugger
         var sw = L.latLng(lats[0], lons[lons.length-1]);
         var ne = L.latLng(lats[lats.length-1], lons[0]);
         return L.latLngBounds(sw, ne);
